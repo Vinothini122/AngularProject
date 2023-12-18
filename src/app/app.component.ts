@@ -55,7 +55,10 @@ export class AppComponent implements OnInit{
   }
 
   deleteClick(data:any){
-   
+    this.details = this.details.filter((item:any) => item !== data);
+    if(this.details.length==0){
+      this.tableVisible = false;
+    }
   }
 }
 
