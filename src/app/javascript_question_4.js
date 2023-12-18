@@ -1,22 +1,21 @@
+function prletMissingElements(arr, N)
+{
+    let diff = arr[0] - 0;
+    for(let i = 0; i < N; i++)
+    {
+        if (arr[i] - i != diff)
+        {
+            while (diff < arr[i] - i)
+            {
+                document.write((i + diff));
+                diff++;
+            }
+        }
+    }
+}
 
-function findMissingNumber(arr, n) {
-    let hashSet = new Set();
-   
-    for (let i = 0; i < n - 1; i++) {
-      hashSet.add(arr[i]);
-    }
-   
-    for (let i = 1; i <= n; i++) {
-      if (!hashSet.has(i)) {
-        return i;
-      }
-    }
-   
-    return n + 1;
-  }
-   
-  let arr = [1, 2, 4, 6, 3, 7, 8];
-  let n = arr.length;
-   
-  let missingNumber = findMissingNumber(arr, n);
-  console.log("Missing number is: " + missingNumber);
+    let arr = [1, 3, 4, 6, 7, 8, 10];
+      
+    let N = arr.length;
+      
+    prletMissingElements(arr, N);
