@@ -1,0 +1,46 @@
+<header>
+  <div class="title">Map Viewer - Openlayers & Angular</div>
+</header>
+<main>
+  <div class="left-bar"></div>
+  <div id="ol-map" class="map-container" (click)="mapEventClick($event)"></div>
+</main>
+<div class="form-container">
+  <form #userForm="ngForm" *ngIf="visible" class="p-30">
+    <div style="padding-top: 20px;">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" required [(ngModel)]="name" />
+    </div>
+
+    <div style="padding-top: 20px;">
+      <label style="padding: 10px;" for="lat">Lat</label>
+      <input id="lat" name="lat" type="text" required [(ngModel)]="lat" />
+    </div>
+
+    <div style="padding-top: 20px;">
+      <label style="padding: 8px;" for="lon">Lon</label>
+      <input id="lon" name="lon" type="text" required [(ngModel)]="lon" />
+    </div>
+    <button type="button" class="btn btn-primary" (click)="onSubmitClick()">Submit</button>
+  </form>
+</div>
+<div class="tableStyle text-center">
+<table *ngIf="tableVisible" class="table" style="border: 1px solid;">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Latitude</th>
+      <th scope="col">Longitude</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let detail of details">
+      <td>{{detail.name}}</td>
+      <td>{{detail.latitude}}</td>
+      <td>{{detail.longitude}}</td>
+      <i (click)="deleteClick(detail)" class="fa fa-trash-o"></i>
+    </tr>
+  </tbody>
+</table>
+</div>
